@@ -23,6 +23,7 @@
         content="Lucky Shrub is a medium-sized garden design firm that specializes in garden design and creation, maintenance and landscaping." />
       <link rel="stylesheet" href="../styles.css" />
     </head>
+
     <body>
       <header>
         <div class="logo_container">
@@ -34,22 +35,16 @@
               <a id="/" href="/">Home</a>
             </li>
             <li>
-              <a id="/pages.about.html" href="pages/about.html">About</a>
+              <a id="/pages/about.html" href="#">About</a>
             </li>
             <li>
-              <a id="/projects/one/pages/services.html" href="#services"
-                >Services</a
-              >
+              <a id="/projects/one/pages/services.html" href="#">Services</a>
             </li>
             <li>
-              <a id="/projects/one/pages/projects.html" href="#projects"
-                >Projects</a
-              >
+              <a id="/projects/one/pages/projects.html" href="#">Projects</a>
             </li>
             <li>
-              <a id="/projects/one/pages/contact.html" href="#contact"
-                >Contact</a
-              >
+              <a id="/projects/one/pages/contact.html" href="#">Contact</a>
             </li>
           </ul>
         </nav>
@@ -101,7 +96,53 @@
         </div>
         <p>&copy; 2024 Developed by Kz</p>
       </footer>
-      <script type="text/javascript" src="../script.js"></script>
+      <script type="text/javascript">
+        const onDisplayImageAbout = () => {
+          let current = 0;
+          const images = document.querySelectorAll(
+            ".about_us_img_container img",
+          );
+          const buttons = document.querySelectorAll(
+            ".about_us_img_container button",
+          );
+          const left = buttons[0];
+          const right = buttons[1];
+
+          right.addEventListener("click", () => {
+            if (current === 1) {
+              images[1].style.display = "none";
+              images[0].style.display = "";
+              current = 0;
+            } else {
+              images[0].style.display = "none";
+              images[1].style.display = "";
+              current = 1;
+            }
+          });
+          left.addEventListener("click", () => {
+            if (current === 1) {
+              images[1].style.display = "none";
+              images[0].style.display = "";
+              current = 0;
+            } else {
+              images[0].style.display = "none";
+              images[1].style.display = "";
+              current = 1;
+            }
+          });
+        };
+        onDisplayImageAbout();
+
+        const onGetCurrentLocation = () => {
+          const location = window.location.pathname;
+          const a = document.getElementById(location);
+          a.classList.add("active");
+          if (location === "/pages/about.html") {
+            onDisplayImageAbout();
+          }
+        };
+        onGetCurrentLocation();
+      </script>
     </body>
   </html>
 </html>
