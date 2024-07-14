@@ -65,7 +65,7 @@ const onGetCurrentLocation = () => {
   const location = window.location.pathname;
   const a = document.getElementById(location);
   a.classList.add("active");
-  if (location === "/projects/one/index.html") {
+  if (location === "/") {
     onPopulateWithStarProducts();
   }
   console.log(location);
